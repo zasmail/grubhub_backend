@@ -1,0 +1,27 @@
+<!-- <script src="https://js.pusher.com/4.3/pusher.min.js"></script> -->
+
+<p id="notice"><%= notice %></p>
+
+<h1>Start Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @start_orders.each do |start_order| %>
+      <tr>
+        <td><%= link_to 'Show', start_order %></td>
+        <td><%= link_to 'Edit', edit_start_order_path(start_order) %></td>
+        <td><%= link_to 'Destroy', start_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Start Order', new_start_order_path %>
