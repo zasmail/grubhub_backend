@@ -5,8 +5,6 @@ class DeliverOrderJob < ApplicationJob
 
   def perform(*args)
     # Do something later
-    # byebug
-
     @rider = args.first[:rider]
     @latitude_interval_size = (37.395119 - @rider[:latitude])/TOTAL_INTERVALS
     @longitude_interval_size = (-122.083479 - @rider[:longitude])/TOTAL_INTERVALS

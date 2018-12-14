@@ -34,7 +34,6 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    # byebug
     @request = Request.new(request_params)
     status = "Searching"
     rider = { name: "Jane Doe", number: "+18001234567", latitude: 37.388064, longitude: -122.088426, }
