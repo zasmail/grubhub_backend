@@ -20,7 +20,8 @@ class PlaceOrdersJob < ApplicationJob
   private
   def place_random_num_of_orders
     [*0..rand(5)].each do |index|
-      dish = Dish.find(rand(Dish.count)-1)
+      dish = Dish.order("RANDOM()").limit(1).first
+      IndexOrdersJob.perform_later({ dish: dish })
       Pusher.trigger('order-channel', 'order-placed', {
         message: dish.to_json,
         time: Time.now,

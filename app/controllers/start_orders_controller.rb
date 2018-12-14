@@ -17,7 +17,7 @@ class StartOrdersController < ApplicationController
     @start_order = StartOrder.new
     respond_to do |format|
       if @start_order.save
-        PlaceOrdersJob.perform_now
+        PlaceOrdersJob.perform_later
         format.html { redirect_to @start_order, notice: 'Start order was successfully created.' }
         format.json { render :index, status: :created, location: @start_order }
       else

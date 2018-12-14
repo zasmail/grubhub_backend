@@ -40,6 +40,7 @@ gem 'algoliasearch'
 gem 'pusher'
 gem 'jquery-rails'
 gem 'faker'
+gem 'whenever', require: false
 
 
 # Reduces boot times through caching; required in config/boot.rb
