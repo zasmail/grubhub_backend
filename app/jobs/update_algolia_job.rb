@@ -15,6 +15,14 @@ class UpdateAlgoliaJob < ApplicationJob
       if !hit["last_ordered"].blank?
         hit['ordered_in_last_day'] = hit['last_ordered'] > (Time.now-(24*60*60)).to_i
         hit['ordered_in_last_hour'] = hit['last_ordered'] > (Time.now-(60*60)).to_i
+        if hit['ordered_in_last_hour']
+          hit['fire'] = "🔥🔥"
+        elsif hit['ordered_in_last_day']
+          hit['fire'] = "🔥"
+        else
+          hit['fire'] = ""
+        end
+
         updated_hits << hit
       end
     end
