@@ -22,6 +22,7 @@ class PlaceOrdersJob < ApplicationJob
     [*0..rand(5)].each do |index|
       dish = Dish.order("RANDOM()").limit(1).first
       IndexOrdersJob.perform_later({ dish: dish })
+      pp "Triggering push"
       Pusher.trigger('order-channel', 'order-placed', {
         message: dish.to_json,
         time: Time.now,

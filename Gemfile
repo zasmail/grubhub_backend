@@ -41,7 +41,7 @@ gem 'pusher'
 gem 'jquery-rails'
 gem 'faker'
 gem 'whenever', require: false
-
+gem 'rufus-scheduler'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
