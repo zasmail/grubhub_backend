@@ -17,6 +17,6 @@ index.browse({ query: '' }) do |hit|
 end
 
 hits.each do |hit|
-  dish = Dish.new(hit.except('_geoloc'))
+  dish = Dish.new(hit.except('_geoloc', 'ordered_in_last_hour', 'ordered_in_last_day', 'last_ordered'))
   dish.save
 end
